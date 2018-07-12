@@ -1,0 +1,26 @@
+<div>
+  <div class="panel">
+    <h1>Transit Planner</h1>
+    <nav class="nav">
+      <span 
+        ng-class="$ctrl.view === 'lines' ? 'nav-item selected' : 'nav-item unselected'"
+        ng-click="$ctrl.changeView('lines')"
+      >
+        Lines
+      </span>
+      <span 
+        ng-class="$ctrl.view === 'planner' ? 'nav-item selected' : 'nav-item unselected'"
+        ng-click="$ctrl.changeView('planner')"
+      >
+        Trip Planner
+      </span>
+    </nav>
+    <div class="main-view" ng-switch on="$ctrl.view">
+      <trip-planner ng-switch-when="planner"></trip-planner>
+      <lines ng-switch-default></lines>
+    </div>
+  </div>
+  <div class="map-panel">
+    <img src="/images/bart-system-map.png"/>
+  </div>
+</div>
